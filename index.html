@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Rizwan — AI/ML Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0d0f13;
+    --card: #151820;
+    --border: #232733;
+    --text: #f0f1f4;
+    --text-dim: #9aa1af;
+    --text-faint: #5c6270;
+    --blue: #5b8cff;
+    --blue-soft: rgba(91,140,255,0.1);
+    --green: #3ecf8e;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(13,15,19,0.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;}
+  .brand{font-weight:700;font-size:16px;}
+  .navlinks{display:flex;gap:28px;font-size:14px;color:var(--text-dim);}
+  .navlinks a:hover{color:var(--text);}
+  .nav-cta{font-size:13px;font-weight:600;background:var(--blue);color:#08101f;padding:9px 16px;border-radius:6px;}
+  @media (max-width:700px){.navlinks{display:none;}}
+
+  /* HERO */
+  .hero{padding:64px 0 56px;text-align:center;}
+  .avatar{
+    width:112px;height:112px;border-radius:50%;
+    object-fit:cover;margin:0 auto 20px;
+    border:3px solid var(--border);
+  }
+  .badge{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:13px;font-weight:600;color:var(--green);
+    background:rgba(62,207,142,0.08);border:1px solid rgba(62,207,142,0.3);
+    padding:6px 14px;border-radius:20px;margin-bottom:20px;
+  }
+  .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.35;}}
+  h1{font-size:clamp(28px,4vw,38px);font-weight:800;letter-spacing:-0.02em;margin-bottom:10px;}
+  .role{font-size:16px;color:var(--blue);font-weight:600;margin-bottom:14px;}
+  .lede{font-size:15.5px;color:var(--text-dim);max-width:540px;margin:0 auto 28px;}
+  .cta-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+  .btn{font-size:14px;font-weight:600;padding:12px 22px;border-radius:8px;transition:all .2s ease;}
+  .btn-primary{background:var(--blue);color:#08101f;}
+  .btn-primary:hover{opacity:0.9;}
+  .btn-ghost{border:1px solid var(--border);color:var(--text);}
+  .btn-ghost:hover{border-color:var(--blue);color:var(--blue);}
+
+  /* SECTION */
+  .section{padding:52px 0;border-top:1px solid var(--border);}
+  .sec-title{font-size:22px;font-weight:700;margin-bottom:28px;}
+
+  /* ABOUT */
+  .about p{color:var(--text-dim);font-size:15px;margin-bottom:14px;}
+  .about strong{color:var(--text);}
+
+  /* SKILLS */
+  .skill-group{margin-bottom:24px;}
+  .skill-group:last-child{margin-bottom:0;}
+  .skill-group h4{font-size:13px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:12px;}
+  .pill-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .pill{font-size:13.5px;color:var(--text);background:var(--card);border:1px solid var(--border);padding:7px 14px;border-radius:20px;}
+
+  /* PROJECTS */
+  .proj-grid{display:flex;flex-direction:column;gap:14px;}
+  .proj-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:22px;}
+  .proj-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:8px;}
+  .proj-card h3{font-size:16px;font-weight:700;}
+  .proj-tag{font-size:11px;color:var(--blue);background:var(--blue-soft);padding:3px 10px;border-radius:12px;font-weight:600;}
+  .proj-card p{font-size:14px;color:var(--text-dim);margin-bottom:12px;}
+  .proj-stack{font-size:12.5px;color:var(--text-faint);}
+
+  /* EXPERIENCE */
+  .exp-item{padding:18px 0;border-bottom:1px solid var(--border);}
+  .exp-item:last-child{border-bottom:none;padding-bottom:0;}
+  .exp-item:first-child{padding-top:0;}
+  .exp-date{font-size:12.5px;color:var(--blue);font-weight:600;margin-bottom:4px;}
+  .exp-item h3{font-size:15.5px;font-weight:700;margin-bottom:2px;}
+  .exp-item .org{font-size:14px;color:var(--text-dim);margin-bottom:6px;}
+  .exp-item p{font-size:13.5px;color:var(--text-faint);}
+
+  /* CONTACT */
+  .contact-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:44px 32px;text-align:center;}
+  .contact-box h2{font-size:22px;margin-bottom:10px;font-weight:700;}
+  .contact-box > p{color:var(--text-dim);margin-bottom:26px;font-size:14.5px;}
+  .contact-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:24px;}
+  .contact-info{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;font-size:13.5px;color:var(--text-dim);}
+  .contact-info a:hover{color:var(--blue);}
+
+  footer{padding:28px 0;border-top:1px solid var(--border);text-align:center;font-size:12.5px;color:var(--text-faint);}
+
+  @media (max-width:600px){
+    .hero{padding:48px 0 40px;}
+    .section{padding:40px 0;}
+    .contact-box{padding:32px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">M. Rizwan</div>
+    <div class="navlinks">
+      <a href="#about">about</a>
+      <a href="#skills">skills</a>
+      <a href="#certifications">certifications</a>
+      <a href="#work">work</a>
+      <a href="#experience">experience</a>
+      <a href="#achievements">achievements</a>
+    </div>
+    <a href="https://wa.me/923137033662" target="_blank" class="nav-cta">WhatsApp</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <img src="profile.jpg" alt="Muhammad Rizwan" class="avatar">
+    <div class="badge"><span class="dot"></span>Open to Work</div>
+    <h1>Muhammad Rizwan</h1>
+    <div class="role">AI/ML Engineer — Lahore, Pakistan</div>
+    <p class="lede">I build multi-agent systems, computer vision, and generative AI products — end to end, from research to production.</p>
+    <div class="cta-row">
+      <a href="#work" class="btn btn-primary">View Work</a>
+      <a href="mailto:rizwan01107@gmail.com" class="btn btn-ghost">Contact Me</a>
+    </div>
+  </div>
+</header>
+
+<section class="section about" id="about">
+  <div class="wrap">
+    <h2 class="sec-title">About</h2>
+    <p><strong>BS Artificial Intelligence</strong> graduate from The Islamia University of Bahawalpur, and a <strong>Samsung Innovation Campus</strong> AI alumnus.</p>
+    <p>I focus on taking models from notebook to production — building <strong>multi-agent pipelines with LangGraph</strong>, real-time <strong>computer vision</strong> systems, and shipping them behind proper <strong>FastAPI, Docker, and Cloud Run</strong> infrastructure.</p>
+    <p>Open to full-time, contract, and remote AI/ML roles — Pakistan and internationally.</p>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="wrap">
+    <h2 class="sec-title">Skills</h2>
+    <div class="skill-group">
+      <h4>Core</h4>
+      <div class="pill-row">
+        <span class="pill">Python</span>
+        <span class="pill">Machine Learning</span>
+        <span class="pill">Deep Learning</span>
+        <span class="pill">Computer Vision</span>
+        <span class="pill">Generative AI</span>
+        <span class="pill">Logistic Regression</span>
+        <span class="pill">Classification</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>AI & Agents</h4>
+      <div class="pill-row">
+        <span class="pill">LangGraph</span>
+        <span class="pill">Multi-Agent Systems</span>
+        <span class="pill">Google Gemini API</span>
+        <span class="pill">Prompt Engineering</span>
+        <span class="pill">NLP</span>
+        <span class="pill">Custom CNNs</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Computer Vision</h4>
+      <div class="pill-row">
+        <span class="pill">YOLOv8</span>
+        <span class="pill">MediaPipe</span>
+        <span class="pill">OpenCV</span>
+        <span class="pill">TensorFlow / Keras</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Backend & Infra</h4>
+      <div class="pill-row">
+        <span class="pill">FastAPI</span>
+        <span class="pill">Flask</span>
+        <span class="pill">Docker</span>
+        <span class="pill">Google Cloud Run</span>
+        <span class="pill">WebSockets</span>
+        <span class="pill">SQLite / MongoDB</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <h2 class="sec-title">Projects</h2>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-top"><h3>AI Software Company</h3><span class="proj-tag">Multi-Agent</span></div>
+        <p>Production-grade multi-agent platform that converts plain-English requirements into working software — 7 specialized agents coordinated through LangGraph.</p>
+        <div class="proj-stack">LangGraph · Gemini 2.5 · FastAPI · Streamlit</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-top"><h3>RepSense-AI</h3><span class="proj-tag">Computer Vision</span></div>
+        <p>Real-time AI gym coach — pose estimation with Kalman-filtered jitter removal, rep-counting state machine, and live Gemini feedback.</p>
+        <div class="proj-stack">YOLOv8 · MediaPipe · React · WebSockets</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-top"><h3>EducationXAI</h3><span class="proj-tag">Full-Stack · GenAI</span></div>
+        <p>YouTube course-curation platform with an AI roadmap generator. Deployed to Cloud Run for the Google AI Seekho 2026 competition.</p>
+        <div class="proj-stack">Node.js · MongoDB · Gemini AI</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-top"><h3>GuardAI</h3><span class="proj-tag">NLP · Security</span></div>
+        <p>Bilingual (English/Urdu) scam-detection system — 87% accuracy, built during Samsung Innovation Campus internship.</p>
+        <div class="proj-stack">NLP · Python · Bilingual ML</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-top"><h3>MangoLeafScan AI</h3><span class="proj-tag">Deep Learning</span></div>
+        <p>CNN-based mango leaf disease classifier — 92.1% accuracy across 9,000+ field images, built on MobileNetV2.</p>
+        <div class="proj-stack">TensorFlow · MobileNetV2</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-top"><h3>NexusAI</h3><span class="proj-tag">GenAI · Automation</span></div>
+        <p>AI business-automation platform with streaming RAG chatbot, document training pipeline, and admin dashboard.</p>
+        <div class="proj-stack">Llama 3 · Ollama · RAG · Streamlit</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="experience">
+  <div class="wrap">
+    <h2 class="sec-title">Experience & Education</h2>
+    <div class="exp-item">
+      <div class="exp-date">JUN 2026 — PRESENT</div>
+      <h3>AI Intern</h3>
+      <div class="org">FlyRank AI</div>
+      <p>Focused on machine learning as part of the AI internship track.</p>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">JAN — MAR 2026</div>
+      <h3>AI Trainee</h3>
+      <div class="org">Samsung Innovation Campus, Lahore</div>
+      <p>Built GuardAI, a bilingual scam-detection system, as the capstone project.</p>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">JAN 2024 — PRESENT</div>
+      <h3>AI Engineer — Independent Projects</h3>
+      <div class="org">Self-Directed</div>
+      <p>Designed and deployed a portfolio of production ML/DL systems spanning computer vision, NLP, and multi-agent platforms.</p>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">2022 — 2026</div>
+      <h3>BS, Artificial Intelligence</h3>
+      <div class="org">The Islamia University of Bahawalpur</div>
+      <p>CGPA 3.35/4.0. Final-year project: MangoLeafScan AI.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="certifications">
+  <div class="wrap">
+    <h2 class="sec-title">Certifications</h2>
+    <div class="skill-group">
+      <div class="pill-row">
+        <span class="pill">Machine Learning Specialization — Andrew Ng (DeepLearning.AI / Stanford)</span>
+        <span class="pill">Crash Course on Python — Google</span>
+        <span class="pill">Introduction to Generative AI — Google</span>
+        <span class="pill">Google AI Essentials</span>
+        <span class="pill">Build a Website on Google Cloud — Skill Badge</span>
+        <span class="pill">Prompt Design in Vertex AI — Skill Badge</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="achievements">
+  <div class="wrap">
+    <h2 class="sec-title">Achievements</h2>
+    <div class="exp-item">
+      <div class="exp-date">2026</div>
+      <h3>Google AI Seekho — Silver Tier Winner</h3>
+      <div class="org">Google AI Seekho 2026</div>
+      <p>Recognized among the top participants nationally for AI project development.</p>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">2026</div>
+      <h3>Prime Minister's Laptop Scheme — Recipient</h3>
+      <div class="org">Government of Pakistan</div>
+      <p>Awarded a laptop for academic merit during BS studies.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="cocurricular">
+  <div class="wrap">
+    <h2 class="sec-title">Co-Curricular Activities</h2>
+    <div class="skill-group">
+      <div class="pill-row">
+        <span class="pill">Cricket</span>
+        <span class="pill">AI / Tech Workshops</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="contact-box">
+      <h2>Let's build something.</h2>
+      <p>Open to full-time, contract, and remote AI/ML roles — Pakistan and internationally.</p>
+      <div class="contact-links">
+        <a href="mailto:rizwan01107@gmail.com" class="btn btn-primary">Email Me</a>
+        <a href="https://wa.me/923137033662" target="_blank" class="btn btn-ghost">WhatsApp</a>
+        <a href="https://www.linkedin.com/in/rizz01107" target="_blank" class="btn btn-ghost">LinkedIn</a>
+        <a href="https://github.com/rizz01107" target="_blank" class="btn btn-ghost">GitHub</a>
+      </div>
+      <div class="contact-info">
+        <a href="mailto:rizwan01107@gmail.com">rizwan01107@gmail.com</a>
+        <a href="tel:+923137033662">+92 313 7033662</a>
+        <a href="https://www.fiverr.com/s/7YRGP3y" target="_blank">Fiverr</a>
+        <a href="https://www.upwork.com/freelancers/~01438ba0acd2be3d9b" target="_blank">Upwork</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Muhammad Rizwan — Lahore, Pakistan
+</footer>
+
+</body>
+</html>
